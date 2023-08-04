@@ -22,6 +22,23 @@ try {
         res.end(indexPage);
         break;
 
+      case '/api/':
+        res.setHeader('Content-Type', 'application/json');
+        res.writeHead(200);
+        res.end(JSON.stringify({ message: 'sending json boii' }));
+        break;
+
+      case '/api/ninjas/':
+        res.setHeader('Content-Type', 'application/json');
+        res.writeHead(200);
+        res.end(
+          JSON.stringify([
+            { name: 'Naruto', clan: 'Uzumaki' },
+            { name: 'Sasuke', clan: 'Uchiha' },
+            { name: 'Sakura', clan: 'Haruno' },
+          ])
+        );
+
       // Return 404
       default:
         res.setHeader('Content-Type', 'text/html');
